@@ -1,0 +1,101 @@
+.scene-book {
+    width: 568px;
+height: 597px;
+margin: 5% 5% 5% 50%;
+perspective: 1000px;
+}
+
+.bookslide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+}
+
+.page-book {
+  cursor: pointer;
+  position: absolute;
+  color: black;
+  width: 100%;
+  height: 100%;
+
+  transition: 1.5s transform;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+}
+.front-book,
+.back-book {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  padding: 5% 5% 5%;
+  box-sizing: border-box;
+
+  backface-visibility: hidden;
+  background: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#FFFFFF), to(#CCCCCC));
+  background: linear-gradient(to bottom right, #202020, #fcd10a);
+}
+.back-book {
+  transform: rotateY(180deg);
+}
+.page-book.activeslide-book + .page-book {
+  z-index: 1;
+}
+.page-book.activeslide-book {
+  z-index: 2;
+}
+.page-book.flippedslide-book {
+  transform: rotateY(-180deg);
+}
+.page-book.flippedslide-book:last-of-type {
+  z-index: 1;
+}
+
+.slide-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  outline: none !important;
+}
+.slide-btn-prev {
+  transform: rotateY(180deg);
+  transform-origin: left center;
+}
+.front-book {
+  padding-left: 0;
+}
+.back-book {
+  padding-right: 0;
+}
+.scene-book.scene-book-center {
+  margin: 0px auto;
+}
+.scene-book.scene-book-center.bookqqq .bookslide {
+  right: -100%;
+}
+.scene-book.scene-book-center.bookqqq .slide-btn.slide-btn-prev {
+  right: -100%;
+  left: inherit;
+  z-index: 2;
+}
+
+@media (max-width: 992px) {
+  .scene-book {
+  width: 324px;
+  height: 340px;
+}
+}
+
+@media (max-width: 766px) {
+  .scene-book {
+  width: 155px;
+  height: 162px;
+}
+}

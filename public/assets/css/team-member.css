@@ -1,0 +1,157 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: BebasNeue-Regular;
+}
+
+.team-member-full-page {
+    background: #fffdf1;
+    min-height: 100vh;
+    background: #fcd10a;
+    /* background: #fcd10a61; */
+    display: flex;
+    align-items: center;
+}
+
+.team_header {
+    background: #202020;
+    background: #000;
+}
+
+@font-face {
+
+    font-family: BebasNeue-Regular;
+    src: local('BebasNeue-Regular'), url(../font/Bebas_Neue/BebasNeue-Regular.ttf);
+    font-display: swap;
+}
+
+.team_body h2 {
+    font-size: 40px;
+    line-height: 1.3;
+}
+
+.team_body h2 span {
+    font-size: 20px;
+    font-family: BebasNeue-Regular;
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+.team_body ul {
+    list-style: none;
+}
+
+.team_body ul li a {
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    transition: all .4s linear;
+    padding: .25rem;
+    padding-left: 75px !important;
+    min-height: 42px;
+}
+
+.team_body ul li a:hover {
+    background: #fcd10a0f;
+}
+
+.team_body ul li a span {
+    font-weight: 400;
+    opacity: 0.5;
+    font-size: 13px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.team_body ul li a i {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fcd10a;
+    color: #000;
+    font-size: 18px;
+}
+
+.team_contact_btn_block {
+    /* margin-top: 1.25rem; */
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, .9) 40%);
+    padding: 1.5rem 0rem 1.75rem;
+    padding-bottom: 15px;
+}
+
+.team_contact_btn {
+    position: relative;
+    align-items: center;
+    max-width: 220px;
+    width: 100%;
+    height: 3.5rem;
+    padding: .75rem 2.5rem;
+    border-radius: 80px;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: .3px;
+    background: #fcd10a;
+    color: #000;
+    box-shadow: 0 1px 5px 0 rgba(82, 93, 102, .25), 0 2px 8px 0 rgba(82, 93, 102, .15);
+    border: 0;
+}
+
+.text-white {
+    color: #fff;
+    font-size: 13px;
+}
+
+.team_body ul li a i {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.team_member_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fcd10a;
+    box-shadow: 0 5px 7px #ccc;
+}
+
+.team_member_img img {
+    object-fit: cover;
+}
+
+@media (max-width: 767px) {
+    .team-member-full-page {
+        min-height: 92vh;
+    }
+
+    .team_body h2 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+    .team_member_img {
+        width: 65px;
+        height: 65px;
+      }
+      .team_body ul li a {
+        font-size: 12px;
+      }
+}
