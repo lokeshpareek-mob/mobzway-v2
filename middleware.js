@@ -1,89 +1,34 @@
-// import { NextResponse } from "next/server";
-
-// export function middleware(request) {
-//   const url = request.nextUrl;
-//   const pathname = url.pathname;
-// //   console.log(url.pathname, 'pathname11111');
-  
-
-  
-//   const country = request.geo?.country || "IN";
-// //   const country = "US";
-// // console.log(country, 'pathname11111');
-  
-//   const countryRouteMap = {
-//     IN: "/in",
-//     BD: "/bd",
-//     US: "/us",
-//   };
-
-//   const targetPath = countryRouteMap[country] || "/in";
-
-  
-//   if (pathname === "/") {
-//     return NextResponse.redirect(new URL(targetPath, request.url));
-//   }
-
-  
-//   if (["/in", "/bd", "/us"].includes(pathname)) {
-    
-//     if (pathname !== targetPath) {
-//       return NextResponse.redirect(new URL(targetPath, request.url));
-//     }
-
-    
-//     return NextResponse.next();
-//   }
-
-  
-//   return NextResponse.next();
-// }
-
-// export const config = {
-//   matcher: ["/((?!_next|favicon.ico).*)"],
-// };
-
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  // Use the Vercel-provided geo header for country detection
-  const country = request.headers.get('x-vercel-country') || "IN";
-  
-  // Log for debugging
-  console.log("Detected country:", country);
-  console.log(request.geo?.country, 'request.geo?.country');
-  
+  const pathname = request.nextUrl.pathname;
 
-  const url = request.nextUrl;
-  const pathname = url.pathname;
+  // Country detection (Vercel Edge)
+  const country =
+    request.headers.get("x-vercel-ip-country") ||
+    request.headers.get("x-vercel-country") ||
+    "IN";
 
-  const countryRouteMap = {
+    console.log(country, 'country');
+    
+
+  const map = {
     IN: "/in",
-    BD: "/bd",
     US: "/us",
+    BD: "/bd",
   };
 
-  const targetPath = countryRouteMap[country] || "/in";
-  
-  console.log("Redirecting to:", targetPath); // Log the target path
-  
-  // Root redirection
+  const target = map[country] || "/in";
+
+  // ✅ ONLY redirect from ROOT
   if (pathname === "/") {
-    return NextResponse.redirect(new URL(targetPath, request.url));
+    return NextResponse.redirect(new URL(target, request.url));
   }
 
-  // Handle country-specific page redirection
-  if (["/in", "/bd", "/us"].includes(pathname)) {
-    if (pathname !== targetPath) {
-      return NextResponse.redirect(new URL(targetPath, request.url));
-    }
-    return NextResponse.next();
-  }
-
+  // ❌ Do NOT force redirect on /in /us /bd
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/((?!_next|favicon.ico).*)"],
+  matcher: ["/"],
 };
-
