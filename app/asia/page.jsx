@@ -1,39 +1,95 @@
+"use client";
 import Image from "next/image";
 import BannerForm from "../components/BannerForm";
+// import { headers } from "next/headers";
+import { useEffect, useState } from "react";
 
-export const metadata = {
-    title: "Mobzway - Online Gaming Software Development Company",
-    description: "Mobzway is one of the top gaming software development company in India. We are custom poker, casino, rummy, Ludo, and Teen Patti gaming software providers.",
-    keywords: "Gaming Software Development, Gaming Software Developers, Gaming Software Providers",
-    openGraph: {
-        title: "Mobzway - Online Gaming Software Development Company | Gaming Software Provider",
-        description: "Mobzway is one of the top gaming software development company in India. We are custom poker, casino, rummy, Ludo, and Teen Patti gaming software providers.",
-        url: "https://www.mobzway.com/",
-        siteName: "Mobzway Technologies",
-        images: [
-            {
-                url: "https://www.mobzway.com/assets/images/homepage_banner.avif",
-                width: 815,
-                height: 821,
-                alt: "mobzway",
-                type: "image/jpg",
+// export const metadata = {
+//     title: "Mobzway - Online Gaming Software Development Company",
+//     description: "Mobzway is one of the top gaming software development company in India. We are custom poker, casino, rummy, Ludo, and Teen Patti gaming software providers.",
+//     keywords: "Gaming Software Development, Gaming Software Developers, Gaming Software Providers",
+//     openGraph: {
+//         title: "Mobzway - Online Gaming Software Development Company | Gaming Software Provider",
+//         description: "Mobzway is one of the top gaming software development company in India. We are custom poker, casino, rummy, Ludo, and Teen Patti gaming software providers.",
+//         url: "https://www.mobzway.com/",
+//         siteName: "Mobzway Technologies",
+//         images: [
+//             {
+//                 url: "https://www.mobzway.com/assets/images/homepage_banner.avif",
+//                 width: 815,
+//                 height: 821,
+//                 alt: "mobzway",
+//                 type: "image/jpg",
+//             },
+//         ],
+//     },
+//     twitter: {
+//         card: "summary_large_image",
+//         title: "Mobzway - Online Gaming Software Development Company | Gaming Software Provider",
+//         description: "Mobzway is one of the top gaming software development company in India. We are custom poker, casino, rummy, Ludo, and Teen Patti gaming software providers.",
+//         site: "@mobzway",
+//         creator: "@mobzway",
+//         images: ["https://www.mobzway.com/assets/images/homepage_banner.avif"],
+//     },
+//     alternates: {
+//         canonical: "https://www.mobzway.com/",
+//     },
+// };
+
+export default function AfHomepage() {
+
+    // let country = "Unknown";
+
+    // try {
+    //     const headersList = headers();
+    //     country =
+    //         headersList.get("x-vercel-ip-country") ||
+    //         headersList.get("cf-ipcountry") ||
+    //         "Unknown";
+    // } catch (e) {
+    //     console.log("Headers not available in dev");
+    // }
+
+    const [country, setCountry] = useState("India");
+
+    const getCountryByIP = async () => {
+        try {
+            const res = await fetch("https://ipapi.co/json/");
+            const data = await res.json();
+            setCountry(data.country_name || "Unknown");
+        } catch (err) {
+            setCountry("Unknown");
+        }
+    };
+
+    useEffect(() => {
+        if (!navigator.geolocation) {
+            getCountryByIP();
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const { latitude, longitude } = position.coords;
+
+                try {
+                    const res = await fetch(
+                        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+                    );
+                    const data = await res.json();
+                    setCountry(data.countryName || "Unknown");
+                } catch {
+                    getCountryByIP();
+                }
             },
-        ],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "Mobzway - Online Gaming Software Development Company | Gaming Software Provider",
-        description: "Mobzway is one of the top gaming software development company in India. We are custom poker, casino, rummy, Ludo, and Teen Patti gaming software providers.",
-        site: "@mobzway",
-        creator: "@mobzway",
-        images: ["https://www.mobzway.com/assets/images/homepage_banner.avif"],
-    },
-    alternates: {
-        canonical: "https://www.mobzway.com/",
-    },
-};
+            () => {
 
-export default function UKHomePage() {
+                getCountryByIP();
+            }
+        );
+    }, []);
+
+
     return (
         <>
 
@@ -71,7 +127,7 @@ export default function UKHomePage() {
                                             <div className="row">
                                                 <div className="col-md-7">
                                                     <h2 data-hk="s40-1-12" className="hero__title">
-                                                        Game‍‌‍‍‌‍‌‍‍‌ Development Services UK
+                                                        SportsBook in {country}
                                                     </h2>
                                                     <img
                                                         className="d-block d-md-none mb-3 w-100"
@@ -79,7 +135,8 @@ export default function UKHomePage() {
                                                         alt="Poker Game"
                                                     />
                                                     <div className="hero__description">
-                                                        Custom game development solutions tailored to the UK market. Games that are scalable, secure, and engaging and can be delivered through the web, mobile, and cross-platform.
+                                                        In {country}, we provide the most sophisticated sportsbook solutions with up-to-the-minute odds, extensive coverage of various sports, and safe and secure integration of wallets.
+                                                        Our sportsbooks are very adaptable and can be used for different purposes; they are also very powerful, always ready to comply with regulations, and provide a very smooth user experience.
 
                                                     </div>
                                                 </div>
@@ -95,7 +152,7 @@ export default function UKHomePage() {
                                             <div className="row">
                                                 <div className="col-md-7">
                                                     <h2 data-hk="s40-1-12" className="hero__title">
-                                                        Sportsbook Software UK
+                                                        Casino Platform in {country}
                                                     </h2>
                                                     <img
                                                         className="d-block d-md-none mb-3 w-100"
@@ -103,7 +160,8 @@ export default function UKHomePage() {
                                                         alt="Rummy Game"
                                                     />
                                                     <div className="hero__description">
-                                                        Highly efficient sportsbook software crafted specifically for UK operators. Some of the features include real-time odds, risk management tools, and effortless platform integrations.
+                                                        We present our casino platforms in {country} as the most feature-rich solutions that include live casinos, table games, and RNG-based systems.
+                                                        Our platforms are designed for scalability and security so that they can integrate multi-currency, multilingual, and payment gateway.
 
                                                     </div>
                                                 </div>
@@ -119,7 +177,7 @@ export default function UKHomePage() {
                                             <div className="row">
                                                 <div className="col-md-7">
                                                     <h2 data-hk="s40-1-12" className="hero__title">
-                                                        Casino Games Development UK
+                                                        Slot Games in {country}
                                                     </h2>
                                                     <img
                                                         className="d-block d-md-none mb-3 w-100"
@@ -127,7 +185,8 @@ export default function UKHomePage() {
                                                         alt="Ludo Game"
                                                     />
                                                     <div className="hero__description">
-                                                        Exclusive casino game development for the UK iGaming industry. Some of the features of the games include RNG-ready, visually immersive, and the games have a robust backend architecture.
+                                                        With top-notch graphics, flawless gameplay, and honest RNG systems, we make attractive slot games for players in {country}.
+                                                        Our slot solutions allow for both web and mobile usage with themes that can be changed to fit the client's needs and monetization options included.
                                                     </div>
                                                 </div>
                                                 <div className="col-md-5 d-none d-md-block">
@@ -193,34 +252,7 @@ export default function UKHomePage() {
                                                     data-slide-to={2}
                                                     aria-label="Slide 3"
                                                 />
-                                                <button
-                                                    className="heroSlide-dots"
-                                                    type="button"
-                                                    data-target="#heroSlide4_1"
-                                                    data-slide-to={3}
-                                                    aria-label="Slide 4"
-                                                />
-                                                <button
-                                                    className="heroSlide-dots"
-                                                    type="button"
-                                                    data-target="#heroSlide4_1"
-                                                    data-slide-to={4}
-                                                    aria-label="Slide 5"
-                                                />
-                                                <button
-                                                    className="heroSlide-dots"
-                                                    type="button"
-                                                    data-target="#heroSlide4_1"
-                                                    data-slide-to={5}
-                                                    aria-label="Slide 6"
-                                                />
-                                                <button
-                                                    className="heroSlide-dots"
-                                                    type="button"
-                                                    data-target="#heroSlide4_1"
-                                                    data-slide-to={6}
-                                                    aria-label="Slide 7"
-                                                />
+
                                             </div>
                                         </div>
                                     </div>
@@ -358,19 +390,21 @@ export default function UKHomePage() {
             >
                 <div className="container">
                     <h1 className="sub_title text-center">
-                        <span className="yellow">Mobzway – Online Gaming Software </span>{" "}
-                        <span className="black">Development Company in the UK</span>
+                        <span className="yellow">Mobzway – Online Gaming Software  </span>{" "}
+                        <span className="black">Development Company in {country}</span>
                     </h1>
                     <p
                         style={{ marginBottom: 15, color: "#000", fontSize: 17 }}
                         className="content"
                     >
-                        Mobzway is a top-notch worldwide gaming software development company that launches tailor-made gaming solutions for the UK market. Our experts have the hands-on knowledge and proficiency in creating engaging and secure games. The games we have expertise in are Custom games, Sportsbook software and other casino-style games for Android, iOS, and HTML5 platforms.
+                        Mobzway is a worldwide gaming software development company providing tailor-made gaming solutions for the {country} market. Our team of gaming professionals is experienced and provides fun games such as Ludo, card and board games, Poker-like, Rummy-like, Teen Patti, Roulette, Blackjack, and casinos games for Android, iOS, and HTML5 platforms.
+                        Mobzway Technologies’ commitment to quality, security, and scalability has helped it to launch over 500 games, win over 300 satisfied clients worldwide, and obtain a 97% client retention rate, thus establishing us as a technology partner that businesses can rely on.
+
 
                     </p>
-                    <p className="content" style={{ color: "#000", fontSize: 17 }}>
-                        With a successful history and experience in the gaming industry, Mobzway Technologies has accomplished the feat of rolling out more than 500 games, catering to the needs of over 300 happy clients worldwide, and maintaining a client retention rate of 97%, which is the reason why we are a technology partner UK and international iGaming operators can rely ‍‌‍‍‌‍‌‍‍‌on.
-                    </p>
+                    {/* <p className="content" style={{ color: "#000", fontSize: 17 }}>
+            With a successful history and experience in the gaming industry, Mobzway Technologies has accomplished the feat of rolling out more than 500 games, catering to the needs of over 300 happy clients worldwide, and maintaining a client retention rate of 97%, which is the reason why we are a technology partner UK and international iGaming operators can rely ‍‌‍‍‌‍‌‍‍‌on.
+          </p> */}
                 </div>
             </section>
             <section className="product-sec">
@@ -380,13 +414,57 @@ export default function UKHomePage() {
                         <span className="black">We Offer</span>
                     </h2>
                     <div className="row justify-content-center">
-                        
+                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
+                            <div className="overflow-hidden w-100 game_icon_sec">
+                                <a href="javascript:void(0)" className="d-block">
+                                    <div className="overflow-hidden w-100">
+                                        {/* <div class="overlay_item"></div>
+                      <div class="ofr_title">
+                          <p>Poker</p>
+                      </div> */}
+                                        <img
+                                            src="/assets/images/Products/af/game-3.png"
+                                            width={1600}
+                                            height={900}
+                                            className=""
+                                            alt="poker bg"
+                                        />
+                                        {/* <img src="/assets/images/poker_bg.avif" width="1600" height="900"
+                          class="img-lazy" alt="poker bg"> */}
+                                        {/* <div class="game_icons">
+                          <div class="anim_one"><img src="/assets/images/poker_icon.png"
+                                  class="img-lazy" width="1600" height="900" alt="poker icon"></div>
+                      </div> */}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {/* <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
+          <div class="pro_item">
+
+              <a href="<?= $baseurl ?>rummy-software/" class="product_page_link">
+                  <div class="pro_inner">
+                      <div class="overlay_item"></div>
+                      <div class="ofr_title">
+                          <p>Rummy</p>
+                      </div>
+                      <img src="/assets/images/rummy_background.avif" width="1600"
+                          height="900" class="img-lazy" alt="rummy bg">
+                      <div class="game_icons">
+                          <div class="anim_five"><img src="/assets/images/rummy_icon.png"
+                                  class="img-lazy" width="1600" class="img-lazy" height="900" alt="rummy icon">
+                          </div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </div> */}
                         <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
                             <div className="overflow-hidden w-100 game_icon_sec">
                                 <a href="javascript:void(0)" className="d-block">
                                     <div className="overflow-hidden w-100">
                                         <img
-                                            src="/assets/images/Products/uk/game-1.webp"
+                                            src="/assets/images/Products/bd/game-5.webp"
                                             width={1600}
                                             height={900}
                                             className=""
@@ -401,22 +479,7 @@ export default function UKHomePage() {
                                 <a href="javascript:void(0)" className="d-block">
                                     <div className="overflow-hidden w-100">
                                         <img
-                                            src="/assets/images/Products/bd/game-1.png"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/Products/bd/game-2.png"
+                                            src="/assets/images/Products/bd/game-4.webp"
                                             width={1600}
                                             height={900}
                                             className=""
@@ -427,7 +490,6 @@ export default function UKHomePage() {
                             </div>
                         </div>
 
-                        
                     </div>
                 </div>
             </section>
@@ -584,36 +646,37 @@ export default function UKHomePage() {
                                 className="help_cotnent text-center"
                                 style={{ paddingBottom: 15 }}
                             >
-                                Mobzway is a reliable video gaming software provider for the UK Market, and we create custom "end-to-end" solutions for our customers. We develop all of the required components of your video gaming platform, including Platform Development, Integration of Video Gaming Products, and Regulatory Compliances. So you can spend more time marketing your business instead of worrying about all the technical complexities of your platform.
+                                Mobzway's know-how in providing customized gaming solutions has put them on the stage of one of the top gaming software developers in the world.
 
                             </div>
                             <div
                                 className="help_cotnent text-center"
                                 style={{ paddingBottom: 15 }}
                             >
-                                We design and develop a range of popular and exciting Video Games, such as Casino Games, Sportsbook, and Custom game development.
+                                We take care of every single detail of the game production process from start to finish including the in-house development, content integration, and even the technical issues, leaving you with the marketing and player base expansion to do.
                             </div>
                             <div
                                 className="help_cotnent text-center"
                                 style={{ paddingBottom: 35 }}
                             >
-                                We just need your idea and a few basic details to get started. Our expert team of Video Game Designers will take your ideas and turn them into Professional-Quality, Commercially Ready Video Games within the agreed timeline.
+                                Our team of experts is versed in the making of in-demand games like Ludo, Poker-style games, Rummy-style games, Teen Patti, and others that fall into the category of skill and entertainment games for the web, Android, iOS, and HTML5 platforms.
+
                             </div>
                             <div
                                 className="help_cotnent text-center"
                                 style={{ paddingBottom: 15 }}
                             >
-                                How can Mobzway assist your Product Strategy in the UK? How can we help you establish your Company in the UK, and how can we help you attract more players?
+                                We only ask for the game concept and basic specifications from the clients. Our professionals then innovate your imagination into a fully functional and ready-to-market game within the stipulated period.
 
                             </div>
 
-                            {/* <div
+                            <div
                                 className="help_cotnent text-center"
                                 style={{ paddingBottom: 15 }}
                             >
-                                If you would like to know how Mobzway can assist with business planning, company set up and growing your customer base in the U.S., please contact us so we can discuss your project further.
+                                Wondering how Mobzway would be able to assist you in your game design, business establishment, and player growth in {country} and other countries?
 
-                            </div> */}
+                            </div>
 
                             <div className="btn_outer">
                                 <button
@@ -714,8 +777,8 @@ export default function UKHomePage() {
                                     data-aos-once="true"
                                 >
                                     <h2 className="sub_title">
-                                        <span className="yellow">Why Should </span>{" "}
-                                        <span className="black">You Choose Us?</span>
+                                        <span className="yellow">Why </span>{" "}
+                                        <span className="black">Choose Us?</span>
                                     </h2>
                                 </div>
                                 <ul
@@ -724,26 +787,33 @@ export default function UKHomePage() {
                                     data-aos-duration={1000}
                                 >
                                     <li>
-                                        Products designed and developed by experienced gaming professionals with extensive Industry Experience
-                                    </li>
-                                    <li>
-                                        The best programmers providing you with performance-oriented, reliable, and user-friendly Games.
+                                        Product designed by experienced gaming professionals who know the industry well.
 
                                     </li>
                                     <li>
-                                        Cross-platform solutions available for Web, Mobile, PC, & MAC.
+                                        Experienced programmers aimed at developing high-quality games that are reliable and engaging.
 
                                     </li>
-                                    <li>Integration support with leading Payment Processors (both UK & Global).
+                                    <li>
+                                        Cross-platform solutions supporting Web, Mobile, PC, and Mac
+
                                     </li>
-                                    <li>All products are delivered with English & Regional Language Support.
+                                    <li>Easy integration with popular and {country}-supporting payment systems
+
+                                    </li>
+                                    <li>Products with support in English and {country}n languages offered to {country}n players
                                     </li>
                                     <li>
-                                        24×7 Monitoring & Support to ensure 99.99% Uptime.
+                                        Monitoring and Support Services 24×7 for availability of up to 99.99 percent
+
                                     </li>
-                                    <li>Cost-Effective and Time-Efficient solutions.
+                                    <li>Cost-effective and time-efficient gaming development solutions
+
                                     </li>
-                                    <li>Enterprise-Level Security to protect you from Fraud & Cyber Threats.
+                                    <li>Enhanced safety features to prevent fraud, hacking, and cyber attacks
+
+                                    </li>
+                                    <li>Free Business Consultation to enhance {country}n gamblers and startups
                                     </li>
 
                                 </ul>

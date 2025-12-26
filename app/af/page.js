@@ -420,7 +420,7 @@ export default function AfHomepage() {
                           <p>Poker</p>
                       </div> */}
                                         <img
-                                            src="/assets/images/game-icon/poker.webp"
+                                            src="/assets/images/Products/af/game-1.webp"
                                             width={1600}
                                             height={900}
                                             className=""
@@ -461,7 +461,7 @@ export default function AfHomepage() {
                                 <a href="javascript:void(0)" className="d-block">
                                     <div className="overflow-hidden w-100">
                                         <img
-                                            src="/assets/images/game-icon/rummy.webp"
+                                            src="/assets/images/Products/af/game-2.webp"
                                             width={1600}
                                             height={900}
                                             className=""
@@ -476,7 +476,7 @@ export default function AfHomepage() {
                                 <a href="javascript:void(0)" className="d-block">
                                     <div className="overflow-hidden w-100">
                                         <img
-                                            src="/assets/images/game-icon/ludo.webp"
+                                            src="/assets/images/Products/af/game-3.png"
                                             width={1600}
                                             height={900}
                                             className=""
@@ -486,261 +486,7 @@ export default function AfHomepage() {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/teenpatti.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/callbreak.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/tambola.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/snake.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/livecasino.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/aviator.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/andar.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/blackjack.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/baccrat.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/tiger.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/roulete.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/slots.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/sicbo.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-md-0 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/keno.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-md-0 mb-3">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/triple.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-md-0">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/ball.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 mb-md-0">
-                            <div className="overflow-hidden w-100 game_icon_sec">
-                                <a href="javascript:void(0)" className="d-block">
-                                    <div className="overflow-hidden w-100">
-                                        <img
-                                            src="/assets/images/game-icon/virtual.webp"
-                                            width={1600}
-                                            height={900}
-                                            className=""
-                                            alt="poker bg"
-                                        />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </section>

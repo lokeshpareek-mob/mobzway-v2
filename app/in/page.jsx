@@ -350,7 +350,7 @@ export default function IndiaHome() {
                                     <div className="overflow-hidden w-100">
                                         
                                         <img
-                                            src="/assets/images/Products/india/game-1.jpg"
+                                            src="/assets/images/Products/india/game-1.webp"
                                             width={1600}
                                             height={900}
                                             className=""
@@ -366,7 +366,7 @@ export default function IndiaHome() {
                                 <a href="javascript:void(0)" className="d-block">
                                     <div className="overflow-hidden w-100">
                                         <img
-                                            src="/assets/images/Products/india/game-2.jpg"
+                                            src="/assets/images/Products/india/game-2.webp"
                                             width={1600}
                                             height={900}
                                             className=""
